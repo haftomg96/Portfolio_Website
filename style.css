@@ -1,0 +1,41 @@
+h1{
+    background-color: green;
+}
+.my-heading{
+    background-color: blue !important;
+    color: white;
+}
+#my-heading{
+    background-color: red;
+    color: blue;
+}
+.box-1{
+    width: 50%;
+    height: 300px;
+
+}
+.border-blue{
+    border: 2px solid blue;
+}
+.border-red{
+    border: 2px solid red;
+}
+.p-10{
+    padding: 10px;
+}
+.pt-10{
+    padding-top: 10px;
+}
+.pb-10{
+padding-bottom: 10px;
+}
+.m-10{
+    margin: 10px;
+}
+.p-5{
+    padding: 5px;
+}
+.bg-green{
+    background-color: green;
+}
+

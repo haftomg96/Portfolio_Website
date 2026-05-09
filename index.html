@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Dev | Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">&lt;AbebeKebede /&gt;</a>
+      <nav>
+        <ul class="nav-links">
+          <li class="list"><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-greeting">👋 Hello, I'm</p>
+        <h1 class="hero-name">Abebe Kebede</h1>
+        <h2 class="hero-title">Full-Stack Developer</h2>
+        <p class="hero-desc">
+          I build clean, fast, and accessible web applications.
+          Passionate about turning ideas into real digital products.
+        </p>
+        <div class="hero-btns">
+          <a href="projects.html" class="btn btn-primary">View My Work</a>
+          <a href="contact.html" class="btn btn-outline">Hire Me</a>
+        </div>
+        <div class="hero-socials">
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="avatar-placeholder">
+          <i class="fas fa-user-tie"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS STRIP ===== -->
+  <section class="skills-strip">
+    <div class="container">
+      <h3 class="section-label">Tech I Work With</h3>
+      <div class="skills-grid">
+        <div class="skill-badge"><i class="fab fa-html5"></i> HTML5</div>
+        <div class="skill-badge"><i class="fab fa-css3-alt"></i> CSS3</div>
+        <div class="skill-badge"><i class="fab fa-js"></i> JavaScript</div>
+        <div class="skill-badge"><i class="fab fa-react"></i> React</div>
+        <div class="skill-badge"><i class="fab fa-node-js"></i> Node.js</div>
+        <div class="skill-badge"><i class="fas fa-database"></i> MongoDB</div>
+        <div class="skill-badge"><i class="fab fa-git-alt"></i> Git</div>
+        <div class="skill-badge"><i class="fab fa-python"></i> Python</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PROJECTS ===== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">A few things I've built recently</p>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-img project-img-1">
+            <span class="project-tag">Web App</span>
+          </div>
+          <div class="project-body">
+            <h3>E-Commerce Store</h3>
+            <p>A full-stack online shop with cart, auth, and payment integration built with React and Node.js.</p>
+            <div class="project-tech">
+              <span>React</span><span>Node.js</span><span>MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img project-img-2">
+            <span class="project-tag">Dashboard</span>
+          </div>
+          <div class="project-body">
+            <h3>Analytics Dashboard</h3>
+            <p>Real-time data visualization dashboard with charts, filters, and export features.</p>
+            <div class="project-tech">
+              <span>JavaScript</span><span>Chart.js</span><span>CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img project-img-3">
+            <span class="project-tag">Mobile-First</span>
+          </div>
+          <div class="project-body">
+            <h3>Task Manager App</h3>
+            <p>A productivity app with drag-and-drop tasks, categories, and local storage persistence.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> Code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="center-btn">
+        <a href="projects.html" class="btn btn-primary">See All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Abebe Kebede. Built with HTML &amp; CSS.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple hamburger toggle (no framework needed)
+    const btn = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      btn.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
