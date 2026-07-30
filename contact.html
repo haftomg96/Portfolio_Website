@@ -91,7 +91,7 @@
 
       <!-- Contact Form -->
       <div class="contact-form-wrap">
-        <form class="contact-form" action="#" method="POST">
+        <form class="contact-form" id="contactForm" novalidate>
           <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" placeholder="John Doe" required />
@@ -108,7 +108,8 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-full">
+          <p id="formStatus" class="form-status" role="status" aria-live="polite" hidden></p>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
             <i class="fas fa-paper-plane"></i> Send Message
           </button>
         </form>
@@ -135,6 +136,64 @@
     btn.addEventListener('click', () => {
       menu.classList.toggle('open');
       btn.classList.toggle('active');
+    });
+
+    // Change this to your deployed API URL (e.g. https://api.yourdomain.com)
+    const API_BASE = window.PORTFOLIO_API_URL || 'http://localhost:3000';
+
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function setStatus(message, isError) {
+      statusEl.hidden = false;
+      statusEl.textContent = message;
+      statusEl.style.color = isError ? '#e74c3c' : '#27ae60';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const payload = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        subject: document.getElementById('subject').value.trim(),
+        message: document.getElementById('message').value.trim(),
+      };
+
+      if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+        setStatus('Please fill in all fields.', true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus('Sending...', false);
+
+      try {
+        const res = await fetch(`${API_BASE}/api/contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          const errMsg =
+            (data.errors && data.errors.join(' ')) ||
+            data.error ||
+            'Something went wrong. Please try again.';
+          setStatus(errMsg, true);
+          return;
+        }
+
+        setStatus(data.message || 'Message sent. Thank you!', false);
+        form.reset();
+      } catch (err) {
+        setStatus('Could not reach the server. Is the API running?', true);
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   </script>
 
