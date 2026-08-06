@@ -151,50 +151,7 @@
       statusEl.style.color = isError ? '#e74c3c' : '#27ae60';
     }
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const payload = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        subject: document.getElementById('subject').value.trim(),
-        message: document.getElementById('message').value.trim(),
-      };
-
-      if (!payload.name || !payload.email || !payload.subject || !payload.message) {
-        setStatus('Please fill in all fields.', true);
-        return;
-      }
-
-      submitBtn.disabled = true;
-      setStatus('Sending...', false);
-
-      try {
-        const res = await fetch(`${API_BASE}/api/contact`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-
-        const data = await res.json().catch(() => ({}));
-
-        if (!res.ok) {
-          const errMsg =
-            (data.errors && data.errors.join(' ')) ||
-            data.error ||
-            'Something went wrong. Please try again.';
-          setStatus(errMsg, true);
-          return;
-        }
-
-        setStatus(data.message || 'Message sent. Thank you!', false);
-        form.reset();
-      } catch (err) {
-        setStatus('Could not reach the server. Is the API running?', true);
-      } finally {
-        submitBtn.disabled = false;
-      }
-    });
+    
   </script>
 
 </body>
